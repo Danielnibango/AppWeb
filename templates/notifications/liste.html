@@ -1,0 +1,10 @@
+<h1>Mes Notifications</h1>
+<ul>
+    {% for notification in notifications %}
+    <li>
+        <strong>{{ notification.titre }}</strong> - {{ notification.description }}
+    </li>
+    {% endfor %}
+</ul>
+
+<!-- Affiche la liste des notifications d'un utilisateur. -->

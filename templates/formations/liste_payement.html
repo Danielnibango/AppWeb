@@ -1,0 +1,11 @@
+<h1>Mes Paiements</h1>
+<ul>
+    {% for paiement in paiements %}
+    <li>
+        Paiement {{ paiement.id }} - {{ paiement.montant }} € ({{ paiement.date }})
+    </li>
+    {% endfor %}
+</ul>
+
+
+<!-- Affiche la liste des paiements d'un utilisateur. -->

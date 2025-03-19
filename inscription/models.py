@@ -92,21 +92,27 @@ class Paiement(models.Model):
     def __str__(self):
         return f"Paiement {self.id} pour {self.demande.id}"
 
+class Module(models.Model):
+    nom = models.CharField(max_length=200, unique=True)
 
-# Modèle Cours
+    def __str__(self):
+        return self.nom
+
 class Cours(models.Model):
-    id_cou = models.AutoField(primary_key=True)  # Identifiant unique
-    intitule = models.CharField(max_length=200)  # Intitulé du cours
-    contenu = models.TextField()  # Contenu du cours
-    frais = models.DecimalField(max_digits=10, decimal_places=2)  # Frais du cours
+    id_cou = models.AutoField(primary_key=True)
+    intitule = models.CharField(max_length=200)
+    contenu = models.TextField()
+    frais = models.DecimalField(max_digits=10, decimal_places=2)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='cours', null=True, blank=True)
 
     def __str__(self):
         return self.intitule
 
 
+
 # Modèle Notification
 class Notification(models.Model):
-    id = models.AutoField(primary_key=True)  # Identifiant unique
+    id = models.AutoField(primary_key=True)  # Identifiant  unique
     titre = models.CharField(max_length=100)  # Titre de la notification
     description = models.TextField()  # Description de la notification
     utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE)  # Relation avec Utilisateur

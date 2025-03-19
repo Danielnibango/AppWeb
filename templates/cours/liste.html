@@ -1,0 +1,12 @@
+<h1>Liste des Cours</h1>
+<ul>
+    {% for cours in cours %}
+    <li>
+        {{ cours.id }} {{ cours.intitule }}  {% if cours.module %} {{ cours.module.nom }} {% endif %} - {{ cours.frais }} fbu
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+<!-- Affiche la liste des cours disponibles. -->

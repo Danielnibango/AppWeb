@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Utilisateur, Admin, Conducteur, Formateur, Formation, Demande, Paiement, Cours, Notification
+from .models import Utilisateur, Admin, Conducteur, Formateur, Formation, Demande, Paiement, Cours, Notification, Module
 
 @admin.register(Utilisateur)
 class UtilisateurAdmin(admin.ModelAdmin):
@@ -31,13 +31,17 @@ class PaiementAdmin(admin.ModelAdmin):
 
 @admin.register(Cours)
 class CoursAdmin(admin.ModelAdmin):
-    list_display = ('id_cou', 'intitule', 'frais')
+    list_display = ('id_cou', 'intitule','module', 'frais')
 
 @admin.register(Notification)
 class NotificationAdmin(admin.ModelAdmin):
     list_display = ('id', 'titre', 'utilisateur')
     
+@admin.register(Module)
+class NotificationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nom')
     
+     
     
 #     => Vérifie les fichiers modifiés : Avant d'ajouter les fichiers, tu peux voir quels fichiers ont été modifiés avec :
 # git status 
@@ -47,4 +51,4 @@ class NotificationAdmin(admin.ModelAdmin):
 # git commit -m "Modification des fichiers"
 # => Pousser les modifications vers GitHub : Après avoir effectué le commit, tu peux envoyer tes changements vers GitHub avec :
 # git push origin main
-# Cela mettra à jour ton dépôt GitHub avec les modifications que tu as effectuées localement.
+# Cela mettra à jour ton dépôt GitHub avec les modifications que tu as effectuées localement .

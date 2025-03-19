@@ -1,0 +1,12 @@
+<h1>{{ formation.id_for }} - {{ formation.formateur.utilisateur.nom }}</h1>
+<p>Date de début : {{ formation.date_debut }}</p>
+<p>Date de fin : {{ formation.date_fin }}</p>
+
+<h2>Créer une demande</h2>
+<form method="post" action="{% url 'creer_demande' formation.id %}">
+    {% csrf_token %}
+    <textarea name="lettre" placeholder="Lettre de motivation"></textarea>
+    <button type="submit">Soumettre</button>
+</form>
+
+<!-- Affiche les détails d'une formation et permet de créer une demande. -->
